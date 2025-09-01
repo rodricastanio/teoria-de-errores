@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Errores y Cotas · Análisis Numérico</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/711/711284.png" type="image/png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <script src="https://cdn.plot.ly/plotly-3.1.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-calculator"></i>
+        <span>Análisis Numérico</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#clasificacion">Clasificación</a></li>
+        <li><a href="#fundamentos">Fundamentos</a></li>
+        <li><a href="#calculadora">Calculadora</a></li>
+        <li><a href="#utilidad">Utilidad</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="hero">
+    <div class="container">
+      <h1>Errores y Cotas en Análisis Numérico</h1>
+      <p>Comprende y calcula los errores en aproximaciones numéricas</p>
+      <a href="#calculadora" class="btn-primary">
+        <i class="fas fa-calculator"></i> Comenzar
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- INTRODUCCIÓN -->
+    <section id="introduccion" class="fade-in">
+      <h2>Introducción al Análisis Numérico</h2>
+      <div class="intro-content">
+        <div class="intro-text">
+          <p>Al aplicar las Matemáticas a situaciones del mundo real, nos encontramos a menudo con problemas que no pueden ser resueltos analíticamente o de manera exacta. Estos problemas deben ser abordados con ayuda de procedimientos o <strong>métodos numéricos</strong>.</p>
+          
+          <p>Un método numérico es un procedimiento mediante el cual se obtiene, casi siempre de manera aproximada, la solución de ciertos problemas realizando cálculos puramente aritméticos y lógicos.</p>
+          
+          <p>La eficiencia en el cálculo de dicha aproximación depende, en parte, de las características especiales y limitaciones de los instrumentos de cálculo. Al emplear estos instrumentos se introducen distintos tipos de errores, y ese será el tema central de estudio.</p>
+        </div>
+        <div class="intro-image">
+          <img src="visual_selection.png" alt="Introducción al Análisis Numérico">
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASIFICACIÓN DE ERRORES -->
+    <section id="clasificacion" class="fade-in">
+      <h2>Clasificación de los Errores</h2>
+      <div class="card-container">
+        <div class="card-row">
+          <div class="card">
+            <h3><i class="fas fa-temperature-high"></i> Errores Sistemáticos</h3>
+            <p>Asociados a los instrumentos de medida, sometidos a influencias externas como cambios de temperatura, humedad, defectos de fabricación, impericia del experimentador, mala calibración, etc.</p>
+            <p>No pueden eliminarse totalmente, pero se minimizan mediante pruebas de control con objetos patrón.</p>
+          </div>
+
+          <div class="card">
+            <h3><i class="fas fa-cube"></i> Errores Inherentes</h3>
+            <p>Surgen cuando aplicamos un modelo matemático que resulta ser una aproximación a la realidad.</p>
+            <p>Estos errores pueden ajustarse para lograr que sean mínimos, pero siempre estarán presentes en las simulaciones y modelos simplificados.</p>
+          </div>
+        </div>
+        
+        <div class="card-row">
+          <div class="card">
+            <h3><i class="fas fa-cut"></i> Errores por Redondeo</h3>
+            <p>Se presentan cuando trabajamos con números en su expresión decimal, pero debemos prescindir de infinitas cifras.</p>
+            <p>Existen tres tipos de redondeo: por defecto, por exceso y al valor más próximo.</p>
+          </div>
+
+          <div class="card">
+            <h3><i class="fas fa-scissors"></i> Errores de Truncamiento</h3>
+            <p>Se presentan cuando interrumpimos un proceso infinito de cálculo después de un número finito de operaciones.</p>
+            <p>Ejemplo: aproximar una función mediante la suma de los n primeros términos de una serie infinita.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNDAMENTOS TEÓRICOS -->
+    <section id="fundamentos" class="fade-in">
+      <h2>Fundamentos Teóricos</h2>
+      
+      <div class="card-container">
+        <div class="card-row">
+          <div class="card">
+            <h3><i class="fas fa-ruler"></i> Error Absoluto</h3>
+            <p>Diferencia entre el valor exacto (α) y el valor aproximado (a):</p>
+            <div class="formula">Δ(a) = |α − a|</div>
+            <p>Representa la magnitud del error sin considerar la escala del valor exacto. Tiene unidades de medida.</p>
+          </div>
+
+          <div class="card">
+            <h3><i class="fas fa-balance-scale"></i> Error Relativo</h3>
+            <p>Cociente entre el error absoluto y el valor exacto:</p>
+            <div class="formula">ε(a) = Δ(a) / |α| = |α − a| / |α|</div>
+            <p>Expresa la proporción del error en relación al valor exacto. No tiene unidades.</p>
+          </div>
+        </div>
+        
+        <div class="card-row">
+          <div class="card">
+            <h3><i class="fas fa-shield-alt"></i> Cota Superior del Error Absoluto</h3>
+            <p>Todo número real positivo Δ*(a) que verifica:</p>
+            <div class="formula">|α − a| ≤ Δ*(a)</div>
+            <p>Esto garantiza que el valor exacto se encuentra dentro del intervalo:</p>
+            <div class="formula">α ∈ [a − Δ*(a), a + Δ*(a)]</div>
+          </div>
+
+          <div class="card">
+            <h3><i class="fas fa-percentage"></i> Cota Superior del Error Relativo</h3>
+            <p>Todo número real positivo ε*(a) que verifica:</p>
+            <div class="formula">|ε(a)| ≤ ε*(a)</div>
+            <p>Se puede adoptar como cota superior:</p>
+            <div class="formula">ε*(a) = Δ*(a) / |a| (si a ≠ 0)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ejemplo-practico">
+        <h3>Ejemplo Práctico</h3>
+        <p>Supongamos que aproximamos π (3.14159265...) con 3.14. Si establecemos una cota de error absoluto Δ* = 0.01, podemos garantizar que:</p>
+        <div class="formula">π ∈ [3.14 - 0.01, 3.14 + 0.01] = [3.13, 3.15]</div>
+        <p>El error absoluto sería Δ = |3.14159265 - 3.14| ≈ 0.00159</p>
+        <p>El error relativo sería ε = 0.00159/3.14159265 ≈ 0.000506 (0.0506%)</p>
+        <p>La cota de error relativo sería ε* = 0.01/3.14 ≈ 0.003185 (0.3185%)</p>
+        <p class="highlight">Esto nos indica que tenemos una precisión de dos decimales correctos, y que el valor real de π se encuentra dentro del intervalo [3.13, 3.15].</p>
+      </div>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section id="calculadora" class="fade-in">
+      <h2>Calculadora de Errores y Cotas</h2>
+      <div class="grid grid-2">
+        <div class="inputs">
+          <div class="input-group">
+            <label for="valor-exacto">
+              <i class="fas fa-crosshairs"></i> Valor exacto (α)
+            </label>
+            <input type="number" id="valor-exacto" step="any" placeholder="Ej: 3.14159265">
+            <div class="hint">El valor teórico o real que se busca aproximar</div>
+          </div>
+
+          <div class="input-group">
+            <label for="valor-aproximado">
+              <i class="fas fa-bullseye"></i> Valor aproximado (a)
+            </label>
+            <input type="number" id="valor-aproximado" step="any" placeholder="Ej: 3.14">
+            <div class="hint">El valor obtenido mediante medición o cálculo aproximado</div>
+          </div>
+
+          <div class="input-group">
+            <label for="cota-error">
+              <i class="fas fa-shield-alt"></i> Cota de error absoluto (Δ*)
+            </label>
+            <input type="number" id="cota-error" step="any" placeholder="Ej: 0.01">
+            <div class="hint">Límite superior del posible error absoluto</div>
+          </div>
+
+          <div class="actions">
+            <button id="btn-calcular" class="btn-primary">
+              <i class="fas fa-calculator"></i> Calcular
+            </button>
+            <button id="btn-limpiar" class="btn-outline">
+              <i class="fas fa-broom"></i> Limpiar
+            </button>
+          </div>
+        </div>
+
+        <div class="results">
+          <h3>Resultados</h3>
+          <div class="resultados-container">
+            <div class="resultado">
+              <span class="label">Error absoluto (Δ)</span>
+              <span id="error-absoluto" class="valor">-</span>
+            </div>
+            <div class="resultado">
+              <span class="label">Error relativo (ε)</span>
+              <span id="error-relativo" class="valor">-</span>
+            </div>
+            <div class="resultado">
+              <span class="label">Cota error absoluto (Δ*)</span>
+              <span id="cota-absoluta" class="valor">-</span>
+            </div>
+            <div class="resultado">
+              <span class="label">Cota error relativo (ε*)</span>
+              <span id="cota-relativa" class="valor">-</span>
+            </div>
+            <div class="resultado">
+              <span class="label">Intervalo para α</span>
+              <span id="intervalo" class="valor">-</span>
+            </div>
+          </div>
+
+          <div class="explicacion">
+            <h4>Explicación:</h4>
+            <p id="texto-explicacion">Ingresa los valores y haz clic en Calcular para ver los resultados y su explicación.</p>
+          </div>
+        </div>
+      </div>
+      <div id="plot" style="width: 50%; height: 800px; padding-left: 25%; padding-right: 25%; padding-top: 5%; "></div>
+    </section>
+
+    <!-- UTILIDAD -->
+    <section id="utilidad" class="fade-in">
+      <h2>¿Para qué sirven las cotas de error?</h2>
+      <div class="card-container">
+        <div class="card-row">
+          <div class="card">
+            <h3><i class="fas fa-check-circle"></i> Garantía de precisión</h3>
+            <p>Las cotas de error proporcionan una garantía sobre la precisión de una aproximación, permitiendo establecer límites dentro de los cuales se encuentra el valor exacto.</p>
+          </div>
+
+          <div class="card">
+            <h3><i class="fas fa-chart-line"></i> Comparación de métodos</h3>
+            <p>Permiten comparar diferentes métodos numéricos o aproximaciones para determinar cuál proporciona mayor precisión con el mismo esfuerzo computacional.</p>
+          </div>
+        </div>
+        
+        <div class="card-row">
+          <div class="card">
+            <h3><i class="fas fa-cogs"></i> Control de algoritmos</h3>
+            <p>En algoritmos iterativos, las cotas de error se utilizan como criterio de parada, deteniendo las iteraciones cuando se alcanza la precisión deseada.</p>
+          </div>
+
+          <div class="card">
+            <h3><i class="fas fa-exclamation-triangle"></i> Análisis de estabilidad</h3>
+            <p>Ayudan a evaluar la estabilidad de los métodos numéricos, determinando cómo se propagan los errores en los cálculos y si estos se mantienen dentro de límites aceptables.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 · Análisis Numérico · UTN</p>
+      <p>Errores absolutos, relativos y cotas de error</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

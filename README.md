@@ -1,2 +1,40 @@
-# teoria-de-errores
-Pagina sobre cotas superior de error absoluto y relativo + calculadora
+```markdown
+# 🌐 Errores y Cotas · Análisis Numérico  
+La página explica de manera teórica y práctica conceptos como **error absoluto, error relativo, cotas de error absoluto y relativo**, incluyendo ejemplos y visualizaciones interactivas.
+
+---
+
+## 📑 Contenido
+
+- **Fundamentos teóricos**  
+  Explicación clara de los tipos de errores y cómo se definen los errores absoluto y relativo.
+
+- **Ejemplos prácticos**  
+  Casos como la aproximación del número π y mediciones con cotas.
+
+- **Visualizaciones**  
+  Gráficos interactivos integrados con Plotly para mostrar intervalos y cotas.
+
+- **Calculadora**  
+  (Opcional) Una pequeña herramienta para calcular errores de manera automática.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- **HTML5 / CSS3 / JavaScript**
+
+---
+
+## 📂 Estructura del proyecto
+
+```
+
+📦 proyecto-errores-cotas
+┣ 📜 index.html        # Página principal
+┣ 📜 style.css         # Estilos de la página
+┣ 📜 script.js         # Funcionalidad y gráficos
+┗ 📜 README.md         # Este archivo
+
+````
+

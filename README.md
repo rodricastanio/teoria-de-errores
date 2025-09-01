@@ -6,35 +6,21 @@ La página explica de manera teórica y práctica conceptos como **error absolut
 
 ## 📑 Contenido
 
-- **Fundamentos teóricos**  
+- Fundamentos teóricos
   Explicación clara de los tipos de errores y cómo se definen los errores absoluto y relativo.
 
-- **Ejemplos prácticos**  
+- Ejemplos prácticos
   Casos como la aproximación del número π y mediciones con cotas.
 
-- **Visualizaciones**  
+- Visualizaciones
   Gráficos interactivos integrados con Plotly para mostrar intervalos y cotas.
 
-- **Calculadora**  
+- Calculadora
   (Opcional) Una pequeña herramienta para calcular errores de manera automática.
 
 ---
 
 ## 🛠️ Tecnologías utilizadas
 
-- **HTML5 / CSS3 / JavaScript**
-
----
-
-## 📂 Estructura del proyecto
-
-```
-
-📦 proyecto-errores-cotas
-┣ 📜 index.html        # Página principal
-┣ 📜 style.css         # Estilos de la página
-┣ 📜 script.js         # Funcionalidad y gráficos
-┗ 📜 README.md         # Este archivo
-
-````
+- HTML5 / CSS3 / JavaScript
 
